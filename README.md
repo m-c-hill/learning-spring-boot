@@ -1,3 +1,9 @@
 # Learning Spring Boot
 
-Following in28minute's course "Learn Spring Boot 3 in 100 Steps"
+Code developed while reading Heckler's "Spring Boot Up & Running"
+
+## Notes
+
+Create a new demo project: `spring init -a demo -l java --build maven demo`
+
+Run the application: `./mvnw spring-boot:run` (runs on port 8080)
