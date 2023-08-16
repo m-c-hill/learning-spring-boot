@@ -11,11 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Value;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -99,6 +98,19 @@ class RestApiDemoController {
 	@DeleteMapping("/{id}")
 	void deleteCoffee(@PathVariable String id){
 		coffeeRepository.deleteById(id);
+	}
+}
+
+@RestController
+@RequestMapping("/greeting")
+class GreetingController{
+	// If greeting-name is not defined as an env variable, default name to "Mirage"
+	@Value("${greeting-name: Mirage}")
+	private String name;
+
+	@GetMapping
+	String getGreeting() {
+		return name;
 	}
 }
 
